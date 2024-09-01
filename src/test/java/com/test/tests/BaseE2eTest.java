@@ -1,5 +1,6 @@
 package com.test.tests;
 
+import app.getxray.xray.testng.listeners.XrayListener;
 import com.test.pages.GooglePage;
 import com.test.util.AnnotationTransformerRetryListener;
 import com.test.util.TestOrderRandomizer;
@@ -26,7 +27,8 @@ import java.time.Duration;
 
 @Listeners({
         TestOrderRandomizer.class,
-        AnnotationTransformerRetryListener.class
+        AnnotationTransformerRetryListener.class,
+        XrayListener.class
 })
 @Slf4j
 public class BaseE2eTest implements IHookable {
