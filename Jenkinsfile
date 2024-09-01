@@ -46,7 +46,7 @@ def e2ePipelineStages() {
      }
 
      stage("Running e2e tests") {
-         sh "mvnd -Dmvnd.idleTimeout=10s clean verify -Dselenium.hub.url=http://selenium-router.selenium-grid.svc.cluster.local:4444 -Dselenium.browser=${params.BROWSER} -Dselenium.target.url=https://google.com"
+         sh "mvn -Dmvnd.idleTimeout=10s clean verify -Dselenium.hub.url=http://selenium-router.selenium-grid.svc.cluster.local:4444 -Dselenium.browser=${params.BROWSER} -Dselenium.target.url=https://google.com"
      }
 
 }
