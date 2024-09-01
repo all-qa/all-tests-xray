@@ -2,19 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="e2e test suite google search" verbose="1">
     <test name="e2e test google search chrome" parallel="methods" thread-count="2">
-        <parameter name="browsers" value="chrome"/>
+        <parameter name="browser" value="chrome"/>
         <packages>
             <package name="com.test.tests"/>
         </packages>
     </test>
     <test name="e2e test google search firefox" parallel="methods" thread-count="2">
-        <parameter name="browsers" value="firefox"/>
+        <parameter name="browser" value="firefox"/>
         <packages>
             <package name="com.test.tests"/>
         </packages>
     </test>
     <test name="e2e test google search edge" parallel="methods" thread-count="2">
-        <parameter name="browsers" value="edge"/>
+        <parameter name="browser" value="edge"/>
         <packages>
             <package name="com.test.tests"/>
         </packages>
