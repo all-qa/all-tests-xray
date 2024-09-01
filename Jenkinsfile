@@ -8,10 +8,6 @@ pipeline {
         }
     }
 
-    parameters {
-        choice(description: 'Target browser', choices: ['chrome', 'firefox', 'edge'], name: 'BROWSER')
-    }
-
     environment {
         MAVEN_OPTS = " -Xms512m -Xmx1024m"
     }
