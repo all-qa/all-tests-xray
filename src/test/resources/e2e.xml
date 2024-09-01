@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="e2e test suite google search" verbose="1">
-    <test name="e2e test google search" parallel="methods" thread-count="2">
+    <test name="e2e test google search chrome" parallel="methods" thread-count="2">
+        <parameter name="browsers" value="chrome"/>
+        <packages>
+            <package name="com.test.tests"/>
+        </packages>
+    </test>
+    <test name="e2e test google search firefox" parallel="methods" thread-count="2">
+        <parameter name="browsers" value="firefox"/>
+        <packages>
+            <package name="com.test.tests"/>
+        </packages>
+    </test>
+    <test name="e2e test google search edge" parallel="methods" thread-count="2">
+        <parameter name="browsers" value="edge"/>
         <packages>
             <package name="com.test.tests"/>
         </packages>

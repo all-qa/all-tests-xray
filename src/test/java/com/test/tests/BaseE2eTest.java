@@ -20,6 +20,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,12 +37,12 @@ public class BaseE2eTest implements IHookable {
     private static final ThreadLocal<GooglePage> TEST_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
     @BeforeMethod
-    public void setUp() {
+    @Parameters("browser}")
+    public void setUp(String browser) {
         WebDriver remoteWebDriver;
-        String targetUrl = System.getProperty("selenium.target.url");
-        String browser = System.getProperty("selenium.browser");
+        String targetUrl = "https://google.com";
         try {
-            URL seleniumHubUrl = new URL(System.getProperty("selenium.hub.url"));
+            URL seleniumHubUrl = new URL("http://selenium-router.selenium-grid.svc.cluster.local:4444");
             switch (browser) {
                 case "chrome":
                     ChromeOptions chromeOptions = new ChromeOptions();
@@ -70,6 +71,7 @@ public class BaseE2eTest implements IHookable {
         remoteWebDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         log.info("setting up things for thread: {}", Thread.currentThread().getName());
         TEST_PAGE_THREAD_LOCAL.set(new GooglePage("en", remoteWebDriver, new WebDriverWait(remoteWebDriver, Duration.ofSeconds(4)), targetUrl));
+        TEST_PAGE_THREAD_LOCAL.get().openPage();
     }
 
     @AfterMethod
