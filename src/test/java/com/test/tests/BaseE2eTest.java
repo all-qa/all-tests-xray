@@ -37,7 +37,7 @@ public class BaseE2eTest implements IHookable {
     private static final ThreadLocal<GooglePage> TEST_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
     @BeforeMethod
-    @Parameters("browser}")
+    @Parameters("browser")
     public void setUp(String browser) {
         WebDriver remoteWebDriver;
         String targetUrl = "https://google.com";
